@@ -1,7 +1,7 @@
 package com.tennis.game.service;
 
 public class TennisGameService {
-	
+
 	private int playerOneScore;
 	private int playerTwoScore;
 	static final String SCORE_LOVE_ALL = "Love All";
@@ -12,39 +12,41 @@ public class TennisGameService {
 	private static final String GAME = "Game";
 	private final String playerOne;
 	private final String playerTwo;
+
 	public TennisGameService(String playerOne, String playerTwo) {
-		this.playerOne=playerOne;
-		this.playerTwo=playerTwo;
+		this.playerOne = playerOne;
+		this.playerTwo = playerTwo;
 	}
 
 	public String getGameScore() {
-		if(playerOneScore == playerTwoScore) {
-			if(playerOneScore == 0) {
+		if (playerOneScore == playerTwoScore) {
+			if (playerOneScore == 0) {
 				return SCORE_LOVE_ALL;
-			}
-			else if(playerOneScore == 1) {
+			} else if (playerOneScore == 1) {
 				return SCORE_FIFTEEN_ALL;
-			}
-			else if(playerOneScore == 2) {
+			} else if (playerOneScore == 2) {
 				return SCORE_THIRTY_ALL;
-			}else {
+			} else {
 				return SCORE_DEUCE;
 			}
-		}else {
-			if(Math.abs(playerOneScore-playerTwoScore)==1) {
-				return ADVANTAGE + " "+ (playerOneScore > playerTwoScore ? playerOne : playerTwo) ;
-			}
-			else {
-				return GAME + " "+ (playerOneScore > playerTwoScore ? playerOne : playerTwo) ;
+		} else {
+			if (pointDifferenceIsOne(playerOneScore, playerTwoScore)) {
+				return ADVANTAGE + " " + (playerOneScore > playerTwoScore ? playerOne : playerTwo);
+			} else {
+				return GAME + " " + (playerOneScore > playerTwoScore ? playerOne : playerTwo);
 			}
 		}
 	}
-	
+
 	public void playerOneScored() {
 		playerOneScore++;
 	}
 
 	public void playerTwoScored() {
 		playerTwoScore++;
+	}
+
+	private boolean pointDifferenceIsOne(int playerOneScore, int playerTwoScore) {
+		return Math.abs(playerOneScore - playerTwoScore) == 1;
 	}
 }
