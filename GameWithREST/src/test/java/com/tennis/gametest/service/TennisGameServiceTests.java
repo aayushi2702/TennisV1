@@ -11,7 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.tennis.game.service.TennisGameService;
 
 @RunWith(MockitoJUnitRunner.class)
-class TennisGameServiceTests {
+ class TennisGameServiceTests {
 
 	private TennisGameService tennisGame;
 	
