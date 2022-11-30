@@ -23,6 +23,7 @@ class TennisGameServiceTests {
 	@ParameterizedTest
 	@CsvSource({
 		"0,0,Love All" ,
+		"1,1,Fifteen"
 	})
 	void parameterizedTestCaseforEachTest(int playerOneScore, int playerTwoScore, String expectedScore) {
 		for(int i=0; i<playerOneScore; i++) {
