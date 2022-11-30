@@ -8,8 +8,12 @@ public class TennisGameService {
 	static final String SCORE_FIFTEEN_ALL = "Fifteen All";
 	static final String SCORE_THIRTY_ALL = "Thirty All";
 	private static final String SCORE_DEUCE = "Deuce";
+	private static final String ADVANTAGE = "Advantage";
+	private final String playerOne;
+	private final String playerTwo;
 	public TennisGameService(String playerOne, String playerTwo) {
-
+		this.playerOne=playerOne;
+		this.playerTwo=playerTwo;
 	}
 
 	public String getGameScore() {
@@ -25,8 +29,9 @@ public class TennisGameService {
 			}else {
 				return SCORE_DEUCE;
 			}
+		}else {
+			return ADVANTAGE + " "+ (playerOneScore > playerTwoScore ? playerOne : playerTwo) ;
 		}
-		return SCORE_LOVE_ALL;
 	}
 	
 	public void playerOneScored() {
