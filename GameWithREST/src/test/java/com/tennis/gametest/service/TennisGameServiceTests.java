@@ -11,7 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import com.tennis.game.service.TennisGameService;
 
 @RunWith(MockitoJUnitRunner.class)
- class TennisGameServiceTests {
+class TennisGameServiceTests {
 
 	private TennisGameService tennisGame;
 	
@@ -20,9 +20,18 @@ import com.tennis.game.service.TennisGameService;
 		tennisGame = new TennisGameService("PlayerOneName", "PlayerTwoName");
 	}
 
-	@Test
-    void LoveAllTest() {
-		assertThat(tennisGame.getGameScore()).isEqualTo("Love All");
-    }
+	@ParameterizedTest
+	@CsvSource({
+		"0,0,Love All" ,
+	})
+	void parameterizedTestCaseforEachTest(int playerOneScore, int playerTwoScore, String expectedScore) {
+		for(int i=0; i<playerOneScore; i++) {
+			tennisGame.playerOneScored();
+		}
+		for(int i=0; i<playerTwoScore; i++) {
+			tennisGame.playerTwoScored();
+		}
+		assertThat(tennisGame.getGameScore()).isEqualTo(expectedScore);
+	}
 	
 }
