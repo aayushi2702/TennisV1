@@ -26,7 +26,7 @@ class TennisGameControllerTests {
 	@Test
 	public void gameAPITest() throws Exception {
 
-		when(tennisGameService.getGameScore()).thenReturn("");
+		when(tennisGameService.getGameScore(1,1)).thenReturn("");
 		mockMvc.perform(get("/getGameScore?playerOneScore=0 & playerTwoScore=0")).andExpect(status().isOk());
 	}
 }
