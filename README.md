@@ -24,3 +24,10 @@ The scoring system is rather simple:
 3. If at least three points have been scored by each player, and the scores are equal, the score is “deuce”.
 
 4. If at least three points have been scored by each side and a player has one more point than his opponent, the score of the game is “advantage” for the player in the lead.
+
+To Run this application in Spring Suite Tool (STS)
+Download code and Run As Spring Boot Project, With Tomcat Port 8081 using JAVA Version 8
+
+Now, Run below API in Postman or any other API Platform.
+localhost:8081/getGameScore/
+with two parameters "playerOneScore" & "playerTwoScore" under BODY in form-data Section, to pass individual Score of both the players.
