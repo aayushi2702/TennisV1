@@ -17,8 +17,8 @@ public class TennisGameService {
 	private static final String SCORE_THIRTY = "Thirty";
 	private static final String SCORE_FORTY = "Forty";
 	private static final String STRING_ALL = "All";
-	private final String playerOne = "PlayerOneName";
-	private final String playerTwo = "PlayerTwoName";
+	private static final String PLAYERONENAME = "PlayerOneName";
+	private static final String PLAYERTWONAME = "PlayerTwoName";
 	private static final Map<Integer, String> SCORE_MAP = new HashMap<>();
 	private static final Integer ONE = 1;
 	private static final Integer TWO = 2;
@@ -31,11 +31,6 @@ public class TennisGameService {
 		SCORE_MAP.put(TWO, SCORE_THIRTY);
 		SCORE_MAP.put(THREE, SCORE_FORTY);
 	}
-
-//	public TennisGameService(String playerOne, String playerTwo) {
-//		this.playerOne = playerOne;
-//		this.playerTwo = playerTwo;
-//	}
 
 	public String getGameScore(Integer playerOneScored, Integer playerTwoScored) { 
 		if (Objects.equals(playerOneScored, playerTwoScored)) {
@@ -55,7 +50,7 @@ public class TennisGameService {
 	}
 
 	private String getHighScorerPlayerName(Integer playerOneScore, Integer playerTwoScore) {
-		return playerOneScore > playerTwoScore ? playerOne : playerTwo;
+		return playerOneScore > playerTwoScore ? PLAYERONENAME : PLAYERTWONAME;
 	}
 
 	private String getPlayerScore(Integer playerScore) {
