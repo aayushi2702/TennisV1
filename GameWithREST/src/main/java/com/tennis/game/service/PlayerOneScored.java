@@ -16,6 +16,7 @@ public class PlayerOneScored {
 	}
 
 	public void setScoreForPlayerOne(String playerOneScore) {
+		this.playerOneScore=0;
 		boolean isNumeric = true;
 		try {
 			Integer.parseInt(playerOneScore);
@@ -23,7 +24,7 @@ public class PlayerOneScored {
 			isNumeric = false;
 		}
 		if (isNumeric) {
-			for (Integer i = 0; i < Integer.parseInt(playerOneScore); i++) {
+			for (int i = 0; i < Integer.parseInt(playerOneScore); i++) {
 				playerOneScored();
 			}
 		}else {
